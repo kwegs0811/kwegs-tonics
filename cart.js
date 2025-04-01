@@ -34,10 +34,12 @@ function checkout() {
         return;
     }
 
-    let orderMessage = cart.map(item => `✅ ${item.name} - $${item.price}`).join("%0A");
+    let orderMessage = cart.map(item => `• ${item.name} - $${item.price}`).join("\n");
     let totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
-    let waLink = `https://wa.me/message/6FQ2YM66AGYYN1?text=🛒 Order Summary:%0A${orderMessage}%0A%0A💰 Total Price: $${totalPrice}%0A%0A📦 Ready to order!`;
+    let message = encodeURIComponent(`🛒 Order Summary:\n${orderMessage}\n\n💰 Total Price: $${totalPrice}\n📦 Ready to order!`);
+    
+    let waLink = `https://wa.me/message/6FQ2YM66AGYYN1?text=${message}`;
     
     window.location.href = waLink;
 }
