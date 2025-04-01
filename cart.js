@@ -34,8 +34,10 @@ function checkout() {
         return;
     }
 
-    let orderMessage = cart.map(item => `${item.name} ($${item.price})`).join(", ");
+    let orderMessage = cart.map(item => `✅ ${item.name} - $${item.price}`).join("%0A");
     let totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
-    let waLink = `https://wa.me/message/6FQ2YM66AGYYN1?text=I%20want%20to%20buy:%20${encodeURIComponent(orderMessage)}%20Total:%20$${totalPrice}`;
+
+    let waLink = `https://wa.me/message/6FQ2YM66AGYYN1?text=🛒 Order Summary:%0A${orderMessage}%0A%0A💰 Total Price: $${totalPrice}%0A%0A📦 Ready to order!`;
+    
     window.location.href = waLink;
 }
