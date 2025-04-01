@@ -1,20 +1,31 @@
 let cart = [];
-let totalPrice = 0;
 
 function addToCart(name, price) {
     cart.push({ name, price });
-    totalPrice += price;
+    updateCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
     updateCart();
 }
 
 function updateCart() {
-    let cartInfo = document.getElementById("cart-info");
-    if (cart.length === 0) {
-        cartInfo.innerHTML = "No items selected.";
-    } else {
-        let itemList = cart.map(item => item.name).join(", ");
-        cartInfo.innerHTML = `Items: ${itemList} <br> Total Price: $${totalPrice}`;
-    }
+    let cartList = document.getElementById("cart-list");
+    let cartTotal = document.getElementById("cart-total");
+
+    cartList.innerHTML = "";  
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+        totalPrice += item.price;
+        let listItem = document.createElement("li");
+        listItem.innerHTML = `${item.name} - $${item.price} 
+            <button onclick="removeFromCart(${index})">Remove</button>`;
+        cartList.appendChild(listItem);
+    });
+
+    cartTotal.innerHTML = `Total Price: $${totalPrice}`;
 }
 
 function checkout() {
@@ -22,7 +33,9 @@ function checkout() {
         alert("Your cart is empty!");
         return;
     }
-    let orderMessage = cart.map(item => item.name).join(", ");
-    let waLink = `https://wa.me/message/6FQ2YM66AGYYN1?text=I%20want%20to%20buy:%20${orderMessage}%20Total:%20$${totalPrice}`;
+
+    let orderMessage = cart.map(item => `${item.name} ($${item.price})`).join(", ");
+    let totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+    let waLink = `https://wa.me/message/6FQ2YM66AGYYN1?text=I%20want%20to%20buy:%20${encodeURIComponent(orderMessage)}%20Total:%20$${totalPrice}`;
     window.location.href = waLink;
 }
