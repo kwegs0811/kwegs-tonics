@@ -95,3 +95,45 @@ footer {
 .cart button:hover {
     background-color: darkred;
 }
+.menu-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-section h2 {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.menu-section h2:hover {
+    color: #007BFF;
+}
+
+.menu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.menu-list li {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.menu-list li a:hover {
+    color: #007BFF;
+}
