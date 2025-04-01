@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KWEGS TONICS - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>KWEGS TONICS</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>For orders and inquiries, message us on WhatsApp:</p>
+        <a href="https://wa.me/message/6FQ2YM66AGYYN1" class="whatsapp-button">Chat on WhatsApp</a>
+    </section>
+    <footer>
+        <p>© 2024 KWEGS TONICS. All rights reserved.</p>
+    </footer>
+</body>
+</html>

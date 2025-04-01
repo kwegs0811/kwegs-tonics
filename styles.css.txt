@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    background-color: #0044cc;
+    color: white;
+    padding: 15px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.hero, .products, .contact {
+    padding: 20px;
+}
+
+.product {
+    background-color: white;
+    margin: 15px auto;
+    padding: 10px;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+.product img {
+    width: 100%;
+}
+
+.buy-button, .whatsapp-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
