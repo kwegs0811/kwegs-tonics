@@ -84,3 +84,35 @@ footer {
 .cart button:hover {
     background-color: #218838;
 }
+.cart {
+    text-align: center;
+    margin: 20px;
+    padding: 15px;
+    border: 2px solid #0044cc;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart li {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart button:hover {
+    background-color: darkred;
+}
