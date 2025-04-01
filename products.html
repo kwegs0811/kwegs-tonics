@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KWEGS TONICS - Products</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="search.js"></script>
 </head>
 <body>
     <header>
@@ -15,21 +16,37 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+
+    <section class="search-section">
+        <input type="text" id="searchBox" placeholder="Search for a component..." onkeyup="searchProducts()">
+    </section>
+
     <section class="products">
         <h2>Our Products</h2>
-        <div class="product">
-            <img src="product1.jpg" alt="Product 1">
-            <h3>ARDUINO UNO</h3>
-            <p>Price: Tsh 20000</p>
+
+        <div class="product" data-name="Resistor">
+            <img src="resistor.jpg" alt="Resistor">
+            <h3>Resistor</h3>
+            <p>Price: $1</p>
             <a href="https://wa.me/message/6FQ2YM66AGYYN1" class="buy-button">Buy on WhatsApp</a>
         </div>
-        <div class="product">
-            <img src="product2.jpg" alt="Product 2">
-            <h3>ATMEGA328P</h3>
-            <p>Price: Tsh 8000</p>
+
+        <div class="product" data-name="Capacitor">
+            <img src="capacitor.jpg" alt="Capacitor">
+            <h3>Capacitor</h3>
+            <p>Price: $2</p>
             <a href="https://wa.me/message/6FQ2YM66AGYYN1" class="buy-button">Buy on WhatsApp</a>
         </div>
+
+        <div class="product" data-name="Transistor">
+            <img src="transistor.jpg" alt="Transistor">
+            <h3>Transistor</h3>
+            <p>Price: $3</p>
+            <a href="https://wa.me/message/6FQ2YM66AGYYN1" class="buy-button">Buy on WhatsApp</a>
+        </div>
+
     </section>
+
     <footer>
         <p>© 2024 KWEGS TONICS. All rights reserved.</p>
     </footer>
