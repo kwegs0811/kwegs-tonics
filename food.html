@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Food Delivery</title><link rel="stylesheet" href="style.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="cart.js" defer></script>
+</head>
 <body>
+  <header>
+    <h1>Kwegs Delivery</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Normal Shop</a></li>
+        <li><a href="stationery.html">Stationery</a></li>
+        <li><a href="food.html" class="active">Food Delivery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <h2>Food Delivery</h2>
-    <h3>Food</h3>
-    <ul>
-      <li>Rice</li>
-      <li>Casserole</li>
-      <li>Roasted Meat</li>
-    </ul>
-    <h3>Soft Drinks</h3>
-    <ul>
-      <li>Mango Juice</li>
-      <li>Pepsi</li>
-      <li>Fanta</li>
-      <li>Coca-Cola</li>
-    </ul>
-    <a href="index.html" class="back-button">🔙 Back</a>
+    <h2>Food Menu</h2>
+    <div class="item-list">
+      <div class="item">
+        <p>Rice</p>
+        <button onclick="addToCart('Rice')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <p>Casserole</p>
+        <button onclick="addToCart('Casserole')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <p>Roasted Meat</p>
+        <button onclick="addToCart('Roasted Meat')">Add to Cart</button>
+      </div>
+    </div>
   </main>
+  <footer>
+    <p>&copy; 2025 Kwegs Delivery</p>
+  </footer>
+  <div id="cart-icon" onclick="location.href='order.html'">
+    🛒 <span id="cart-count">0</span>
+  </div>
 </body>
 </html>
