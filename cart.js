@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const items = cart.map(item => `${item.name} (x${item.quantity})`).join('%0A');
       const message = `Order's name: ${name}%0ALOCATION: ${location}%0APhone number: ${phone}%0AOrdered items:%0A${items}`;
-      const whatsappURL = `https://wa.me/message/6FQ2YM66AGYYN1?text=${message}`;
+    const whatsappURL = `https://wa.me/255785792468?text=${message}`;
 
       window.open(whatsappURL, '_blank');
       document.getElementById('confirmation').style.display = 'block';
