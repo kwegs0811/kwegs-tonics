@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Food Delivery</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="cart.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="cart.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Kwegs Delivery</h1>
+    <h1>Kwegs Delivery - Food Section</h1>
     <nav>
       <ul class="navbar">
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Normal Shop</a></li>
         <li><a href="stationery.html">Stationery</a></li>
-        <li><a href="food.html" class="active">Food Delivery</a></li>
+        <li><a class="active" href="food.html">Food Delivery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="order.html">Order</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <h2>Food Delivery</h2>
+    <h2>Delicious Campus Meals</h2>
     <div class="item-list">
       <div class="item">
-        <h3>Rice</h3>
-        <button type="button" onclick="addToCart('Rice')">Add to Cart</button>
+        <img src="https://images.unsplash.com/photo-1605478634203-203f59dc55b8" alt="Rice & Beans">
+        <h3>Rice & Beans</h3>
+        <button onclick="addToCart('Rice & Beans')">Add to Cart</button>
       </div>
       <div class="item">
-        <h3>Ugali</h3>
-        <button type="button" onclick="addToCart('Ugali')">Add to Cart</button>
-      </div>
-      <div class="item">
+        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Roasted Meat">
         <h3>Roasted Meat</h3>
-        <button type="button" onclick="addToCart('Roasted Meat')">Add to Cart</button>
+        <button onclick="addToCart('Roasted Meat')">Add to Cart</button>
       </div>
       <div class="item">
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1ce5f33" alt="Fanta">
+        <h3>Fanta</h3>
+        <button onclick="addToCart('Fanta')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1625942739163-f3d5ee44f0b6" alt="Porridge">
         <h3>Porridge</h3>
-        <button type="button" onclick="addToCart('Porridge')">Add to Cart</button>
+        <button onclick="addToCart('Porridge')">Add to Cart</button>
       </div>
     </div>
   </main>
-  <footer>
-    <p>&copy; 2025 Kwegs Delivery</p>
-  </footer>
+
   <div id="cart-icon" onclick="location.href='order.html'">
     🛒 <span id="cart-count">0</span>
   </div>
