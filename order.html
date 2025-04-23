@@ -20,7 +20,7 @@
 
       const msg = `Order's name: ${name}\nLocation: ${location}\nPhone number: ${phone}\nOrdered items:\n${items.join("\n")}`;
       const encoded = encodeURIComponent(msg);
-      const url = `https://wa.me/254785792468?text=${encoded}`;
+      const url = `https://wa.me/255785792468?text=${encoded}`;
       window.open(url, '_blank');
       document.getElementById("status").textContent = "Submitted!";
     }
