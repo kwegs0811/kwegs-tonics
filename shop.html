@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Shop</title><link rel="stylesheet" href="style.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normal Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="cart.js" defer></script>
+</head>
 <body>
+  <header>
+    <h1>Kwegs Delivery</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Normal Shop</a></li>
+        <li><a href="stationery.html">Stationery</a></li>
+        <li><a href="food.html">Food Delivery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <h2>Normal Shop</h2>
-    <ul>
-      <li>Toothbrush</li>
-      <li>Toothpaste</li>
-      <li>Beans</li>
-    </ul>
-    <a href="index.html" class="back-button">🔙 Back</a>
+    <h2>Normal Shop Items</h2>
+    <div class="item-list">
+      <div class="item">
+        <p>Toothpaste</p>
+        <button onclick="addToCart('Toothpaste')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <p>Soap</p>
+        <button onclick="addToCart('Soap')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <p>Tissue</p>
+        <button onclick="addToCart('Tissue')">Add to Cart</button>
+      </div>
+    </div>
   </main>
+  <footer>
+    <p>&copy; 2025 Kwegs Delivery</p>
+  </footer>
+  <div id="cart-icon" onclick="location.href='order.html'">
+    🛒 <span id="cart-count">0</span>
+  </div>
 </body>
 </html>
