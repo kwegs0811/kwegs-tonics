@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Normal Shop</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="cart.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="cart.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Kwegs Delivery</h1>
+    <h1>Kwegs Delivery - Normal Shop</h1>
     <nav>
       <ul class="navbar">
         <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html" class="active">Normal Shop</a></li>
+        <li><a class="active" href="shop.html">Normal Shop</a></li>
         <li><a href="stationery.html">Stationery</a></li>
         <li><a href="food.html">Food Delivery</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -21,26 +21,33 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <h2>Normal Shop</h2>
+    <h2>Everyday Essentials</h2>
     <div class="item-list">
       <div class="item">
+        <img src="https://images.unsplash.com/photo-1586015557407-1ec19fa8e5d1" alt="Toothpaste">
         <h3>Toothpaste</h3>
-        <button type="button" onclick="addToCart('Toothpaste')">Add to Cart</button>
+        <button onclick="addToCart('Toothpaste')">Add to Cart</button>
       </div>
       <div class="item">
+        <img src="https://images.unsplash.com/photo-1606813904694-7b1b7d5d8f67" alt="Soap">
         <h3>Soap</h3>
-        <button type="button" onclick="addToCart('Soap')">Add to Cart</button>
+        <button onclick="addToCart('Soap')">Add to Cart</button>
       </div>
       <div class="item">
-        <h3>Toilet Paper</h3>
-        <button type="button" onclick="addToCart('Toilet Paper')">Add to Cart</button>
+        <img src="https://images.unsplash.com/photo-1614278421235-fd7b87ff6f85" alt="Snacks">
+        <h3>Snacks</h3>
+        <button onclick="addToCart('Snacks')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b1c" alt="Water Bottle">
+        <h3>Water Bottle</h3>
+        <button onclick="addToCart('Water Bottle')">Add to Cart</button>
       </div>
     </div>
   </main>
-  <footer>
-    <p>&copy; 2025 Kwegs Delivery</p>
-  </footer>
+
   <div id="cart-icon" onclick="location.href='order.html'">
     🛒 <span id="cart-count">0</span>
   </div>
