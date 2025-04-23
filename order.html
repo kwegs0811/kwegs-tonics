@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="cart.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="cart.js?v=1" defer></script>
 </head>
 <body>
   <header>
@@ -23,18 +23,28 @@
   </header>
   <main>
     <h2>Your Order</h2>
+    <div id="order-items"></div>
+
     <form id="order-form">
-      <label>Name:<br><input type="text" id="order-name" required></label><br><br>
-      <label>Location:<br><input type="text" id="order-location" required></label><br><br>
-      <label>Phone Number:<br><input type="tel" id="order-phone" required></label><br><br>
-      <h3>Items:</h3>
-      <ul id="order-items"></ul>
+      <label for="name">Order's Name:</label>
+      <input type="text" id="name" required><br>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" required><br>
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" required><br>
+
       <button type="submit">Submit Order</button>
       <button type="button" onclick="clearCart()">Clear Cart</button>
     </form>
+    <p id="confirmation" style="display:none; color: green;">Order Submitted!</p>
   </main>
   <footer>
     <p>&copy; 2025 Kwegs Delivery</p>
   </footer>
+  <div id="cart-icon" onclick="location.href='order.html'">
+    🛒 <span id="cart-count">0</span>
+  </div>
 </body>
 </html>
