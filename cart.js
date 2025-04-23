@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const location = document.getElementById('location').value;
       const phone = document.getElementById('phone').value;
 
-      const items = cart.map(item => `${item.name} (x${item.quantity})`).join('%0A');
-      const message = `Order's name: ${name}%0ALOCATION: ${location}%0APhone number: ${phone}%0AOrdered items:%0A${items}`;
-    const whatsappURL = `https://wa.me/255785792468?text=${message}`;
+      const itemsList = cart.map(item => `- ${item.name} (x${item.quantity})`).join('%0A');
+      const message = `Order's name: ${name}%0ALocation: ${location}%0APhone number: ${phone}%0AOrdered items:%0A${itemsList}`;
+      const whatsappURL = `https://wa.me/255785792468?text=${message}`;
 
       window.open(whatsappURL, '_blank');
       document.getElementById('confirmation').style.display = 'block';
