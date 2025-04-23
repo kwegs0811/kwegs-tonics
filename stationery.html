@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Stationery</title><link rel="stylesheet" href="style.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stationery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="cart.js" defer></script>
+</head>
 <body>
+  <header>
+    <h1>Kwegs Delivery</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Normal Shop</a></li>
+        <li><a href="stationery.html" class="active">Stationery</a></li>
+        <li><a href="food.html">Food Delivery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <h2>Stationery</h2>
-    <ul>
-      <li>Pen</li>
-      <li>Pencil</li>
-      <li>Exercise Book</li>
-      <li>Envelope</li>
-      <li>Textbook</li>
-    </ul>
-    <a href="index.html" class="back-button">🔙 Back</a>
+    <h2>Stationery Items</h2>
+    <div class="item-list">
+      <div class="item">
+        <p>Pen</p>
+        <button onclick="addToCart('Pen')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <p>Notebook</p>
+        <button onclick="addToCart('Notebook')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <p>Highlighter</p>
+        <button onclick="addToCart('Highlighter')">Add to Cart</button>
+      </div>
+    </div>
   </main>
+  <footer>
+    <p>&copy; 2025 Kwegs Delivery</p>
+  </footer>
+  <div id="cart-icon" onclick="location.href='order.html'">
+    🛒 <span id="cart-count">0</span>
+  </div>
 </body>
 </html>
