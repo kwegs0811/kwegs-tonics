@@ -1,72 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Order</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function submitOrder() {
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const location = document.getElementById("location").value;
-
-      const items = [];
-      document.querySelectorAll("input[name='items']:checked").forEach(i => items.push("- " + i.value));
-
-      if (!name || !location || !phone || items.length === 0) {
-        alert("Please fill in all fields and select at least one item.");
-        return;
-      }
-
-      const msg = `Order's name: ${name}\nLocation: ${location}\nPhone number: ${phone}\nOrdered items:\n${items.join("\n")}`;
-      const encoded = encodeURIComponent(msg);
-      const url = `https://wa.me/255785792468?text=${encoded}`;
-      window.open(url, '_blank');
-      document.getElementById("status").textContent = "Submitted!";
-    }
-  </script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="cart.js" defer></script>
 </head>
 <body>
+  <header>
+    <h1>Kwegs Delivery</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Normal Shop</a></li>
+        <li><a href="stationery.html">Stationery</a></li>
+        <li><a href="food.html">Food Delivery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="order.html" class="active">Order</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <h2>Place Your Order</h2>
-    <form onsubmit="event.preventDefault(); submitOrder();">
-      <label>Your Name:</label><br>
-      <input id="name" required><br><br>
-
-      <label>Your Phone Number:</label><br>
-      <input id="phone" required><br><br>
-
-      <label>Your Location:</label><br>
-      <input id="location" required><br><br>
-
-      <label>Select Items:</label><br>
-      <strong>Food</strong><br>
-      <input type="checkbox" name="items" value="Rice"> Rice<br>
-      <input type="checkbox" name="items" value="Casserole"> Casserole<br>
-      <input type="checkbox" name="items" value="Roasted Meat"> Roasted Meat<br><br>
-
-      <strong>Soft Drinks</strong><br>
-      <input type="checkbox" name="items" value="Mango Juice"> Mango Juice<br>
-      <input type="checkbox" name="items" value="Pepsi"> Pepsi<br>
-      <input type="checkbox" name="items" value="Fanta"> Fanta<br>
-      <input type="checkbox" name="items" value="Coca-Cola"> Coca-Cola<br><br>
-
-      <strong>Shop</strong><br>
-      <input type="checkbox" name="items" value="Toothbrush"> Toothbrush<br>
-      <input type="checkbox" name="items" value="Toothpaste"> Toothpaste<br>
-      <input type="checkbox" name="items" value="Beans"> Beans<br><br>
-
-      <strong>Stationery</strong><br>
-      <input type="checkbox" name="items" value="Pen"> Pen<br>
-      <input type="checkbox" name="items" value="Pencil"> Pencil<br>
-      <input type="checkbox" name="items" value="Exercise Book"> Exercise Book<br>
-      <input type="checkbox" name="items" value="Envelope"> Envelope<br>
-      <input type="checkbox" name="items" value="Textbook"> Textbook<br><br>
-
+    <h2>Your Order</h2>
+    <form id="order-form">
+      <label>Name:<br><input type="text" id="order-name" required></label><br><br>
+      <label>Location:<br><input type="text" id="order-location" required></label><br><br>
+      <label>Phone Number:<br><input type="tel" id="order-phone" required></label><br><br>
+      <h3>Items:</h3>
+      <ul id="order-items"></ul>
       <button type="submit">Submit Order</button>
+      <button type="button" onclick="clearCart()">Clear Cart</button>
     </form>
-    <p id="status"></p>
-    <a href="index.html" class="back-button">🔙 Back</a>
   </main>
+  <footer>
+    <p>&copy; 2025 Kwegs Delivery</p>
+  </footer>
 </body>
 </html>
