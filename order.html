@@ -1,114 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Order</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="cart.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Order</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="order.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Kwegs Delivery - Your Order</h1>
-    <nav>
-      <ul class="navbar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Normal Shop</a></li>
-        <li><a href="stationery.html">Stationery</a></li>
-        <li><a href="food.html">Food Delivery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a class="active" href="order.html">Order</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="order-page">
+    <header class="top-bar">
+      <h1>Your Cart</h1>
+      <a href="index.html" class="back-link">Back to Home</a>
+    </header>
 
-  <main>
-    <h2>Review & Submit Your Order</h2>
-
-    <div class="form-section">
-      <label>Name: <input type="text" id="customer-name" required /></label>
-      <label>Location: <input type="text" id="location" required /></label>
-      <label>Phone Number: <input type="text" id="phone" required /></label>
-    </div>
-
-    <div class="order-list" id="cart-items"></div>
-
-    <div class="order-buttons">
-      <button onclick="clearCart()">Clear Cart</button>
-      <button onclick="submitOrder()">Submit Order</button>
-    </div>
-  </main>
-
-  <div id="cart-icon" onclick="location.href='order.html'">
-    🛒 <span id="cart-count">0</span>
+    <section class="cart-items">
+      <div class="cart-list" id="cartList">
+        <!-- Items will be loaded here via JS -->
+      </div>
+      <div class="order-total">
+        <h3>Total: $<span id="totalPrice">0.00</span></h3>
+        <button class="order-now">Confirm Order</button>
+      </div>
+    </section>
   </div>
-
-  <script>
-    function submitOrder() {
-      const name = document.getElementById('customer-name').value.trim();
-      const location = document.getElementById('location').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      if (!name || !location || !phone || cart.length === 0) {
-        alert('Please fill all fields and add items to your cart.');
-        return;
-      }
-
-      const itemsText = cart.map(item => `- ${item.name} (x${item.quantity})`).join('\n');
-      const message = `Order's name: ${name}\nLocation: ${location}\nPhone number: ${phone}\nOrdered items:\n${itemsText}`;
-      const url = `https://wa.me/255785792468?text=${encodeURIComponent(message)}`;
-
-      window.open(url, '_blank');
-    }
-
-    function displayCartItems() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartContainer = document.getElementById('cart-items');
-      cartContainer.innerHTML = '';
-
-      if (cart.length === 0) {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-        return;
-      }
-
-      cart.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.classList.add('cart-item');
-        div.innerHTML = `
-          <span>${item.name}</span>
-          <input type="number" min="1" value="${item.quantity}" onchange="updateItemQuantity(${index}, this.value)">
-          <button onclick="removeItem(${index})">Remove</button>
-        `;
-        cartContainer.appendChild(div);
-      });
-    }
-
-    function removeItem(index) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayCartItems();
-      updateCartCount();
-    }
-
-    function updateItemQuantity(index, quantity) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart[index].quantity = parseInt(quantity);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    }
-
-    function clearCart() {
-      if (confirm('Clear all items from your cart?')) {
-        localStorage.removeItem('cart');
-        displayCartItems();
-        updateCartCount();
-      }
-    }
-
-    displayCartItems();
-    updateCartCount();
-  </script>
 </body>
 </html>
