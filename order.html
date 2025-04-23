@@ -7,15 +7,20 @@
   <script>
     function submitOrder() {
       const name = document.getElementById("name").value;
-      const item = document.getElementById("item").value;
+      const phone = document.getElementById("phone").value;
       const location = document.getElementById("location").value;
-      if (!name || !item || !location) {
-        alert("Please fill all fields.");
+
+      const items = [];
+      document.querySelectorAll("input[name='items']:checked").forEach(i => items.push("- " + i.value));
+
+      if (!name || !location || !phone || items.length === 0) {
+        alert("Please fill in all fields and select at least one item.");
         return;
       }
-      const msg = `Hello, I want to order:\\nName: ${name}\\nItem: ${item}\\nLocation: ${location}`;
+
+      const msg = `Order's name: ${name}\nLocation: ${location}\nPhone number: ${phone}\nOrdered items:\n${items.join("\n")}`;
       const encoded = encodeURIComponent(msg);
-      const url = `https://wa.me/255785792468?text=${encoded}`;
+      const url = `https://wa.me/254785792468?text=${encoded}`;
       window.open(url, '_blank');
       document.getElementById("status").textContent = "Submitted!";
     }
@@ -26,11 +31,38 @@
     <h2>Place Your Order</h2>
     <form onsubmit="event.preventDefault(); submitOrder();">
       <label>Your Name:</label><br>
-      <input id="name"><br><br>
-      <label>Item:</label><br>
-      <input id="item"><br><br>
-      <label>Location:</label><br>
-      <input id="location"><br><br>
+      <input id="name" required><br><br>
+
+      <label>Your Phone Number:</label><br>
+      <input id="phone" required><br><br>
+
+      <label>Your Location:</label><br>
+      <input id="location" required><br><br>
+
+      <label>Select Items:</label><br>
+      <strong>Food</strong><br>
+      <input type="checkbox" name="items" value="Rice"> Rice<br>
+      <input type="checkbox" name="items" value="Casserole"> Casserole<br>
+      <input type="checkbox" name="items" value="Roasted Meat"> Roasted Meat<br><br>
+
+      <strong>Soft Drinks</strong><br>
+      <input type="checkbox" name="items" value="Mango Juice"> Mango Juice<br>
+      <input type="checkbox" name="items" value="Pepsi"> Pepsi<br>
+      <input type="checkbox" name="items" value="Fanta"> Fanta<br>
+      <input type="checkbox" name="items" value="Coca-Cola"> Coca-Cola<br><br>
+
+      <strong>Shop</strong><br>
+      <input type="checkbox" name="items" value="Toothbrush"> Toothbrush<br>
+      <input type="checkbox" name="items" value="Toothpaste"> Toothpaste<br>
+      <input type="checkbox" name="items" value="Beans"> Beans<br><br>
+
+      <strong>Stationery</strong><br>
+      <input type="checkbox" name="items" value="Pen"> Pen<br>
+      <input type="checkbox" name="items" value="Pencil"> Pencil<br>
+      <input type="checkbox" name="items" value="Exercise Book"> Exercise Book<br>
+      <input type="checkbox" name="items" value="Envelope"> Envelope<br>
+      <input type="checkbox" name="items" value="Textbook"> Textbook<br><br>
+
       <button type="submit">Submit Order</button>
     </form>
     <p id="status"></p>
