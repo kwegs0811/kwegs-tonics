@@ -2,62 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Order - Kwegs Delivery</title>
+  <title>Order</title>
   <link rel="stylesheet" href="style.css">
   <script>
     function submitOrder() {
       const name = document.getElementById("name").value;
       const item = document.getElementById("item").value;
       const location = document.getElementById("location").value;
-
       if (!name || !item || !location) {
-        alert("Please fill in all fields.");
+        alert("Please fill all fields.");
         return;
       }
-
-      const message = `Hello, I want to order:\nName: ${name}\nItem: ${item}\nLocation: ${location}`;
-      const encodedMsg = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/254785792468?text=${encodedMsg}`;
-
-      window.open(whatsappURL, '_blank');
+      const msg = `Hello, I want to order:\\nName: ${name}\\nItem: ${item}\\nLocation: ${location}`;
+      const encoded = encodeURIComponent(msg);
+      const url = `https://wa.me/254785792468?text=${encoded}`;
+      window.open(url, '_blank');
       document.getElementById("status").textContent = "Submitted!";
     }
   </script>
 </head>
 <body>
-  <header>
-    <h1>Kwegs Delivery</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Normal Shop</a></li>
-        <li><a href="stationery.html">Stationery</a></li>
-        <li><a href="food.html">Food Delivery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="order.html" class="active">Order</a></li>
-      </ul>
-    </nav>
-  </header>
-
   <main>
     <h2>Place Your Order</h2>
     <form onsubmit="event.preventDefault(); submitOrder();">
-      <label for="name">Your Name:</label><br>
-      <input type="text" id="name" required><br><br>
-
-      <label for="item">Item to Order:</label><br>
-      <input type="text" id="item" required><br><br>
-
-      <label for="location">Your Location:</label><br>
-      <input type="text" id="location" required><br><br>
-
+      <label>Your Name:</label><br>
+      <input id="name"><br><br>
+      <label>Item:</label><br>
+      <input id="item"><br><br>
+      <label>Location:</label><br>
+      <input id="location"><br><br>
       <button type="submit">Submit Order</button>
     </form>
     <p id="status"></p>
+    <a href="index.html" class="back-button">🔙 Back</a>
   </main>
-
-  <footer>
-    <p>&copy; 2025 Kwegs Delivery</p>
-  </footer>
 </body>
 </html>
