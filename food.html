@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food Delivery</title>
   <link rel="stylesheet" href="style.css">
-  <script src="cart.js" defer></script>
+  <script src="cart.js?v=1" defer></script>
 </head>
 <body>
   <header>
@@ -22,19 +22,23 @@
     </nav>
   </header>
   <main>
-    <h2>Food Menu</h2>
+    <h2>Food Delivery</h2>
     <div class="item-list">
       <div class="item">
-        <p>Rice</p>
-        <button onclick="addToCart('Rice')">Add to Cart</button>
+        <h3>Rice</h3>
+        <button type="button" onclick="addToCart('Rice')">Add to Cart</button>
       </div>
       <div class="item">
-        <p>Casserole</p>
-        <button onclick="addToCart('Casserole')">Add to Cart</button>
+        <h3>Ugali</h3>
+        <button type="button" onclick="addToCart('Ugali')">Add to Cart</button>
       </div>
       <div class="item">
-        <p>Roasted Meat</p>
-        <button onclick="addToCart('Roasted Meat')">Add to Cart</button>
+        <h3>Roasted Meat</h3>
+        <button type="button" onclick="addToCart('Roasted Meat')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <h3>Porridge</h3>
+        <button type="button" onclick="addToCart('Porridge')">Add to Cart</button>
       </div>
     </div>
   </main>
