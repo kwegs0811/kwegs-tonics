@@ -1,56 +1,86 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function updateCartCount() {
-  document.getElementById('cart-count').textContent = cart.length;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-function addToCart(item) {
-  cart.push({ name: item, quantity: 1 });
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartCount();
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 1em;
+  text-align: center;
 }
 
-function renderOrderItems() {
-  const orderList = document.getElementById('order-items');
-  if (!orderList) return;
-  orderList.innerHTML = '';
-
-  const counts = {};
-  cart.forEach(({ name }) => {
-    counts[name] = (counts[name] || 0) + 1;
-  });
-
-  for (const [item, quantity] of Object.entries(counts)) {
-    const li = document.createElement('li');
-    li.textContent = `${item} x${quantity}`;
-    orderList.appendChild(li);
-  }
+.navbar {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  background: #34495e;
+  margin: 0;
 }
 
-function clearCart() {
-  cart = [];
-  localStorage.removeItem('cart');
-  renderOrderItems();
-  updateCartCount();
+.navbar li {
+  margin: 0 10px;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  updateCartCount();
-  renderOrderItems();
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em;
+  display: block;
+}
 
-  const form = document.getElementById('order-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('order-name').value;
-      const location = document.getElementById('order-location').value;
-      const phone = document.getElementById('order-phone').value;
+.navbar a.active, .navbar a:hover {
+  background: #1abc9c;
+  border-radius: 5px;
+}
 
-      const items = cart.map(({ name }) => `- ${name}`).join('%0A');
-      const message = `Order's name: ${name}%0ALOCATION: ${location}%0APhone number: ${phone}%0AOrdered items:%0A${items}`;
-      const whatsappURL = `https://wa.me/255785792468?text=${message}`;
+main {
+  padding: 1em;
+}
 
-      window.location.href = whatsappURL;
-    });
-  }
-});
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+}
+
+.item {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+button {
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a085;
+}
+
+#cart-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1abc9c;
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#order-items div {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+}
