@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stationery</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="cart.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="cart.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Kwegs Delivery</h1>
+    <h1>Kwegs Delivery - Stationery</h1>
     <nav>
       <ul class="navbar">
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Normal Shop</a></li>
-        <li><a href="stationery.html" class="active">Stationery</a></li>
+        <li><a class="active" href="stationery.html">Stationery</a></li>
         <li><a href="food.html">Food Delivery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="order.html">Order</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <h2>Stationery</h2>
+    <h2>Stationery Items</h2>
     <div class="item-list">
       <div class="item">
-        <h3>Pen</h3>
-        <button type="button" onclick="addToCart('Pen')">Add to Cart</button>
+        <img src="https://images.unsplash.com/photo-1588776814546-ec7d9b56c6e1" alt="Pen Pack">
+        <h3>Pen Pack</h3>
+        <button onclick="addToCart('Pen Pack')">Add to Cart</button>
       </div>
       <div class="item">
+        <img src="https://images.unsplash.com/photo-1527443224154-719fabc0788e" alt="Notebook">
         <h3>Notebook</h3>
-        <button type="button" onclick="addToCart('Notebook')">Add to Cart</button>
+        <button onclick="addToCart('Notebook')">Add to Cart</button>
       </div>
       <div class="item">
-        <h3>Ruler</h3>
-        <button type="button" onclick="addToCart('Ruler')">Add to Cart</button>
+        <img src="https://images.unsplash.com/photo-1592890288311-e2872c8f5c35" alt="Highlighter">
+        <h3>Highlighter</h3>
+        <button onclick="addToCart('Highlighter')">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1606836591348-2c28e66a5f0e" alt="Stapler">
+        <h3>Stapler</h3>
+        <button onclick="addToCart('Stapler')">Add to Cart</button>
       </div>
     </div>
   </main>
-  <footer>
-    <p>&copy; 2025 Kwegs Delivery</p>
-  </footer>
+
   <div id="cart-icon" onclick="location.href='order.html'">
     🛒 <span id="cart-count">0</span>
   </div>
