@@ -1,86 +1,91 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+let cart = JSON.parse(localStorage.getItem('kwegsCart')) || [];
+
+function saveCart() {
+  localStorage.setItem('kwegsCart', JSON.stringify(cart));
+  updateCartCount();
 }
 
-header {
-  background: #2c3e50;
-  color: white;
-  padding: 1em;
-  text-align: center;
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById('cart-count').textContent = count;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  background: #34495e;
-  margin: 0;
+function addToCart(itemName) {
+  const existingItem = cart.find(item => item.name === itemName);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name: itemName, quantity: 1 });
+  }
+  saveCart();
 }
 
-.navbar li {
-  margin: 0 10px;
+function clearCart() {
+  cart = [];
+  saveCart();
+  if (document.getElementById('order-items')) {
+    displayCartItems();
+  }
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5em;
-  display: block;
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  displayCartItems();
 }
 
-.navbar a.active, .navbar a:hover {
-  background: #1abc9c;
-  border-radius: 5px;
+function increaseQty(index) {
+  cart[index].quantity += 1;
+  saveCart();
+  displayCartItems();
 }
 
-main {
-  padding: 1em;
+function decreaseQty(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+    saveCart();
+    displayCartItems();
+  }
 }
 
-.item-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1em;
+function displayCartItems() {
+  const container = document.getElementById('order-items');
+  if (!container) return;
+
+  container.innerHTML = '';
+  cart.forEach((item, index) => {
+    container.innerHTML += `
+      <div>
+        ${item.name} - Quantity: ${item.quantity}
+        <button onclick="increaseQty(${index})">+</button>
+        <button onclick="decreaseQty(${index})">-</button>
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
 }
 
-.item {
-  padding: 1em;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
 
-button {
-  margin-top: 0.5em;
-  padding: 0.5em 1em;
-  background: #1abc9c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  if (document.getElementById('order-items')) {
+    displayCartItems();
+  }
 
-button:hover {
-  background: #16a085;
-}
+  const form = document.getElementById('order-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const location = document.getElementById('location').value;
+      const phone = document.getElementById('phone').value;
 
-#cart-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1abc9c;
-  color: white;
-  padding: 10px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1.2em;
-}
+      const items = cart.map(item => `${item.name} (x${item.quantity})`).join('%0A');
+      const message = `Order's name: ${name}%0ALOCATION: ${location}%0APhone number: ${phone}%0AOrdered items:%0A${items}`;
+      const whatsappURL = `https://wa.me/message/6FQ2YM66AGYYN1?text=${message}`;
 
-#order-items div {
-  margin: 0.5em 0;
-  padding: 0.5em;
-  border-bottom: 1px solid #ccc;
-}
+      window.open(whatsappURL, '_blank');
+      document.getElementById('confirmation').style.display = 'block';
+    });
+  }
+});
