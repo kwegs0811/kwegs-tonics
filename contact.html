@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="cart.js?v=1" defer></script>
 </head>
 <body>
   <header>
@@ -22,15 +23,17 @@
   </header>
   <main>
     <h2>Contact Us</h2>
-    <p>Phone: 0785792468</p>
-    <p>WhatsApp: <a href="https://wa.me/message/6FQ2YM66AGYYN1" target="_blank">Click here to message us</a></p>
+    <p>Feel free to reach out through WhatsApp or call:</p>
+    <ul>
+      <li><a href="https://wa.me/message/6FQ2YM66AGYYN1" target="_blank">Message us on WhatsApp</a></li>
+      <li>Phone: 0785792468</li>
+    </ul>
   </main>
   <footer>
     <p>&copy; 2025 Kwegs Delivery</p>
   </footer>
-</body>
-</html>
-    <a href="index.html" class="back-button">🔙 Back</a>
-  </main>
+  <div id="cart-icon" onclick="location.href='order.html'">
+    🛒 <span id="cart-count">0</span>
+  </div>
 </body>
 </html>
