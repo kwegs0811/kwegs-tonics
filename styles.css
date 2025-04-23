@@ -1,7 +1,8 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  background: linear-gradient(to right, #f0f0f0, #fafafa);
 }
 
 header {
@@ -27,7 +28,7 @@ header {
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 0.5em;
+  padding: 0.7em 1em;
   display: block;
 }
 
@@ -37,29 +38,42 @@ header {
 }
 
 main {
-  padding: 1em;
+  padding: 2em;
 }
 
 .item-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5em;
 }
 
 .item {
+  background: white;
   padding: 1em;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+.item img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 button {
-  margin-top: 0.5em;
-  padding: 0.5em 1em;
+  margin-top: 0.7em;
+  padding: 0.5em 1.2em;
   background: #1abc9c;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -73,14 +87,9 @@ button:hover {
   right: 20px;
   background: #1abc9c;
   color: white;
-  padding: 10px;
+  padding: 12px 18px;
   border-radius: 50px;
   cursor: pointer;
   font-size: 1.2em;
-}
-
-#order-items div {
-  margin: 0.5em 0;
-  padding: 0.5em;
-  border-bottom: 1px solid #ccc;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
